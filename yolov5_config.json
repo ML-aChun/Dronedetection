@@ -1,0 +1,12 @@
+{
+	"source": "0",
+	"weights": "yolov5s.pt",
+	"device": "",
+	"imgsz": 640,
+	"stride": 32,
+	"classes":0,
+	"agnostic-nms":false,
+	"conf_thres": 0.35,
+	"iou_thres": 0.45,
+	"augment": false
+}

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../static/css/BigData.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/index01.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/Message.css" rel="stylesheet" type="text/css" />
+    <script src="../static/js/jquery.js"></script>
+    <link href="../static/js/bstable/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../static/js/bstable/css/bootstrap-table.css" rel="stylesheet" type="text/css" />
+    <link href="../static/css/Security_operation.css" rel="stylesheet" type="text/css" />
+    <link rel="../stylesheet" href="../static/js/artDialog/skins/default.css" type="text/css"/>
+    <script src="../static/js/laydate.js"></script>
+    <script src="../static/js/Home_page.js"></script>
+    <script src="../static/js/message.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>无人机检测平台</title>
+
+</head>
+<body >
+{% load static %}
+
+<div class="data_bodey">
+    <div class="index_tabs" >
+        <!--安防运作-->
+        <div class="inner" style="height: 109%;">
+            <div class="center_cage">
+                <div class="dataAllBorder01 cage_cl" style="margin-top:8% !important; height: 88%; position: relative;">
+                 <img class="video_around video_around_chose" src="http://127.0.0.1:8000/123/<arg_path>" style="height: 100%; width: 100%;">
+
+
+                </div>
+            </div>
+            <div class="right_cage">
+                <!--顶部切换位置-->
+                <div class="dataAllBorder011 cage_cl" style="margin-top: 6% !important; height: 24%">
+                    <div class="dataAllBorder02" id="cage_cl" >
+                        <div class="analysis-num-state"  >数量：<span id="num">{{ num }}</span></div>
+                        <div class="analysis-num-state"  >密集度：<span id="state">{{ state }}</span></div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="dataAllBorder011 cage_cl check_increase" style=" margin-top: 1.5% !important;">
+                    <!--切换01-->
+                    <div class="dataAllBorder02 over_hide dataAllBorder20" id="over_hide">
+                        <table class="table table-borde red">
+
+                            <thead>
+                            <tr>
+                                <th style="width: 18%">名称</th>
+                                <th>归属</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>区域一</td>
+                                <td>地点</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>区域二</td>
+                                <td>地点</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>区域三</td>
+                                <td>地点</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>区域四</td>
+                                <td>地点</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--无人机状态-->
+                <div class="dataAllBorder011 cage_cl check_decrease" style="margin-top: 1.5% !important; height: 32%; position: relative;">
+                    <div class="dataAllBorder02 over_hide" style="padding: 1.2%;">
+                        <div class="analysis">无人机状态：</div>
+                        <div class="danger_depart_box">
+
+                            <ul class="danger_depart">
+                                <li class="danger_ico" style="background-image: url(../static/img/images/pic_ico_01.png); background-position-x: 0px"></li>
+                                <li class="data_name">高度:&nbsp;</li>
+                                <li class="data data01"></li>
+                            </ul>
+                            <ul class="danger_depart">
+                              <li class="danger_ico" style="background-image: url(../static/img/images/pic_ico_02.png); background-position-x: 0px"></li>
+                                <li class="data_name">飞行速度:</li>
+                                <li class="data data01"></li>
+
+                            </ul>
+                            <ul class="danger_depart danger_depart01">
+                                <li class="danger_ico" style="background-image: url(../static/img/images/pic_ico_03.png); background-position-x: 0px"></li>
+                                <li class="data_name">位置: </li>
+
+
+                            </ul>
+
+
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="../static/js/echarts-all.js"></script>
+{#<script src="../static/js"></script>#}
+<script src="../static/js/bstable/js/bootstrap.min.js"></script>
+<script src="../static/js/bstable/js/bootstrap-table.js"></script>
+<script type="text/javascript" src="../static/js/jquery.pagination.js"></script>
+<script src="../static/js/bstable/js/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5ieMMexWmzB9jivTq6oCRX9j&callback"></script>
+
+    <!--<script src="js/MainMap.js"></script>-->
+<script src="../static/js/Home_page.js"></script>
+<script src="../static/js/artDialog/artDialog.js"></script>
+<script src="../static/js/artDialog/plugins/iframeTools.source.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+    function updatePedestrianCount() {
+        $.ajax({
+            url: '/123/',
+            dataType: 'json',
+            success: function(data) {
+                $('#num').html(data.num);
+                $('#state').html(data.state);
+
+            }
+        });
+    }
+    setInterval(updatePedestrianCount, 200);
+
+</script>
+
+
+</body>
+</html>

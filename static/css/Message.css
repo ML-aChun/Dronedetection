@@ -1,0 +1,22 @@
+#message_box_outside {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 50%为自身尺寸的一半 */
+  z-index: 2000;
+}
+
+.message_box_inside {
+  margin-top: 10px;
+  color: white;
+  min-height: 40px;
+  min-width: 200px;
+  border-radius: 10px;
+}
+
+.cc-display {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  display: -webkit-flex;
+}
